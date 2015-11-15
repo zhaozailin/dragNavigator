@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <link href="lib/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+  <link href="lib/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="css/dragNav.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div id="log" style="margin: auto;width: 100px;height: 30px;font-weight: bold"></div>
+  <div id="testView"></div>
+
+  <script src="lib/jquery/dist/jquery.js"></script>
+  <script src="lib/underscore/underscore.js"></script>
+  <script src="lib/jquery-ui/jquery-ui.js"></script>
+  <script src="lib/timeUtils.js"></script>
+  <script src="js/dragNav.js"></script>
+
+  <script>
+    var enabledTimes = [
+      {
+        year: 2015,
+        month: 8
+      },
+      {
+        year: 2015,
+        month: 9
+      },
+      {
+        year: 2015,
+        month: 10
+      },
+      {
+        year: 2015,
+        month: 11
+      }
+    ];
+
+    // 配置信息
+    var config = {
+      domObj: $("#testView"),
+
+      // 可视区域中的元素数量，请务必为奇数
+      visibleNum: 9,
+
+      // 每个元素的高度，单位px
+      eleHeight: 40
+    };
+
+    var curTime = {
+      year: 2015,
+      month: 9
+    };
+
+    function test (curTime) {
+      var times = timeUtils.calsTimes(21, curTime);
+
+      var newTimes = _.map(times, function(time) {
+        var enabled = false;
+        for (var i = 0; i < enabledTimes.length; i++) {
+          if (time.year === enabledTimes[i].year && time.month === enabledTimes[i].month) {
+            enabled = true;
+            break;
+          }
+        }
+
+        return {
+          leftInfo: time.year + "年",
+          leftShow: time.month === 1,
+          centerInfo: time.month + "月",
+          enabled: enabled
+        }
+      });
+
+      dragNav.init(config, newTimes, function(stopInfo) {
+        $("#log").html(stopInfo.leftInfo + "-" + stopInfo.centerInfo);
+        demo({year: parseInt(stopInfo.leftInfo.slice(0, -1)), month: parseInt(stopInfo.centerInfo.slice(0, -1))});
+      });
+    }
+
+    $(function() {
+      demo(curTime);
+    });
+  </script>
+</body>
+</html>
