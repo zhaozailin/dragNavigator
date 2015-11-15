@@ -54,7 +54,7 @@
     };
 
     function test (curTime) {
-      var times = timeUtils.calsTimes(21, curTime);
+      var times = timeUtils.calcTimes(21, curTime);
 
       var newTimes = _.map(times, function(time) {
         var enabled = false;
@@ -75,12 +75,12 @@
 
       dragNav.init(config, newTimes, function(stopInfo) {
         $("#log").html(stopInfo.leftInfo + "-" + stopInfo.centerInfo);
-        demo({year: parseInt(stopInfo.leftInfo.slice(0, -1)), month: parseInt(stopInfo.centerInfo.slice(0, -1))});
+        test({year: parseInt(stopInfo.leftInfo.slice(0, -1)), month: parseInt(stopInfo.centerInfo.slice(0, -1))});
       });
     }
 
     $(function() {
-      demo(curTime);
+      test(curTime);
     });
   </script>
 </body>
