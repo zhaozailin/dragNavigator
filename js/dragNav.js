@@ -124,6 +124,7 @@
 
         $(scrollObj).html(ulHtml);
         $(visibleObj).html(scrollObj);
+
         $(visibleObj).append("<div class='drag-nav-middle' style='height: " + eleHeight + "px;top: " + (visibleHeight - eleHeight) / 2 + "px'></div>");
 
         // 滚动区域

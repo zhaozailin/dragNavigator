@@ -37,6 +37,11 @@
       }
     ];
 
+    var curTime = {
+      year: 2015,
+      month: 9
+    };
+
     // 配置信息
     var config = {
       domObj: $("#testView"),
@@ -48,31 +53,8 @@
       eleHeight: 40
     };
 
-    var curTime = {
-      year: 2015,
-      month: 9
-    };
-
     function test (curTime) {
-      var times = timeUtils.calcTimes(21, curTime);
-
-      var newTimes = _.map(times, function(time) {
-        var enabled = false;
-        for (var i = 0; i < enabledTimes.length; i++) {
-          if (time.year === enabledTimes[i].year && time.month === enabledTimes[i].month) {
-            enabled = true;
-            break;
-          }
-        }
-
-        return {
-          leftInfo: time.year + "年",
-          leftShow: time.month === 1,
-          centerInfo: time.month + "月",
-          enabled: enabled
-        }
-      });
-
+      var newTimes = timeUtils.switchNavData(curTime, enabledTimes);
       dragNav.init(config, newTimes, function(stopInfo) {
         $("#log").html(stopInfo.leftInfo + "-" + stopInfo.centerInfo);
         test({year: parseInt(stopInfo.leftInfo.slice(0, -1)), month: parseInt(stopInfo.centerInfo.slice(0, -1))});
