@@ -34,20 +34,23 @@
 
 .drag-nav-scroll ul li i {
   position: absolute;
-  top: 7px;
+  top: 14px;
   right: 2px;
   font-size: 25px;
   color: #185AF5;
   z-index: 1;
-  background-color: #fff;
+  width: 12px;
+  height: 12px;
+  background: url("../images/enabled.png");
 }
 
 .drag-nav-center {
-  border-right: 3px solid darkslategray;
+  border-right: 2px solid #ACB1B1;
   line-height: 40px;
   text-align: right;
-  padding-right: 10px;
-  margin-right: 10px;
+  padding-right: 15px;
+  margin-right: 7px;
+  font-size: 14px;
 }
 
 .drag-nav-left {
@@ -58,14 +61,13 @@
 }
 
 .drag-nav-middle {
-  width: 50px;
+  width: 18px;
   position: absolute;
   top: 0;
   z-index: 2;
-  background: #2E45B9;
-  opacity: 0.5;
   right: 0;
   border-radius: 5px;
+  background: url("../images/selected.png") no-repeat center !important;
 }
 
 .drag-nav-disabled {
@@ -73,8 +75,21 @@
 }
 
 .drag-nav-selected {
-  color: gold !important;
-  font-size: 30px !important;
-  right: -1px !important;
-  top: 4px !important;
+  right: 0px !important;
+  top: 12px !important;
+  background: url("../images/selected.png") !important;
+  display: block;
+  width: 17px !important;
+  height: 17px !important;
+}
+
+.drag-nav-focus-flag {
+  height: 40px;
+  background: url("../images/focus.png") no-repeat 0 8px;
+  color: #fff;
+  position: absolute;
+  width: 33px;
+  left: 67px;
+  text-align: center;
+  font-size: 13px;
 }

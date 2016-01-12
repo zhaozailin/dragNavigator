@@ -98,14 +98,21 @@
         var scrollObj = document.createElement("div");
         scrollObj.className = "drag-nav-scroll";
 
+        // 中间的文本值
+        var middleText = "";
+
         var ulHtml = "<ul>";
         for (var i = 0; i < number; i++) {
             var tmp = data[i];
             ulHtml += "<li idx='" + (i + 1) + "' class='" + (!tmp.enabled ? "drag-nav-disabled" : "")+ "'>" +
                 "<div class='drag-nav-left' style='display:" + (tmp.leftShow ? "block" : "none") + "'>" + tmp.leftInfo + "</div>" +
                 "<div style='height: " + eleHeight + "px' class='drag-nav-center'>" + tmp.centerInfo + "</div>" +
-                "<i class='fa fa-genderless " + ((i === (number - 1) / 2) ? "drag-nav-selected" : "") + "'></i>" +
+                "<i></i>" +
                 "</li>";
+
+            if (i === (number - 1) / 2) {
+                middleText = tmp.centerInfo;
+            }
 
             // 计算上边界
             if (topBoundary === 1 && tmp.enabled) {
@@ -126,6 +133,7 @@
         $(visibleObj).html(scrollObj);
 
         $(visibleObj).append("<div class='drag-nav-middle' style='height: " + eleHeight + "px;top: " + (visibleHeight - eleHeight) / 2 + "px'></div>");
+        $(visibleObj).append("<div class='drag-nav-focus-flag' style='line-height: " + eleHeight + "px;height: " + eleHeight + "px;top: " + (visibleHeight - eleHeight) / 2 + "px'>" + middleText + "</div>");
 
         // 滚动区域
         var scrollObj = $(scrollObj);
