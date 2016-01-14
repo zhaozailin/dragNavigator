@@ -16,9 +16,11 @@
                 var top = ui.position.top;
                 if (top >= topBoundary) {
                     ui.position.top = topBoundary;
+                    return false;
                 }
                 else if (top <= bottomBoundary) {
                     ui.position.top = bottomBoundary;
+                    return false;
                 }
             },
             stop: function( event, ui ) {
@@ -142,6 +144,8 @@
         scrollObj.css("top", (-(number * eleHeight - visibleHeight) / 2) + "px");
 
         // 初始化拖动事件
+        // -1为了解决一个小bug，可能是计算导致的错误
+        topBoundary = topBoundary - 1;
         _initDrag(scrollObj, topBoundary, bottomBoundary, config, data, function(stopInfo) {
             if (callback) {
                 callback(stopInfo);
