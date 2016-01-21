@@ -57,7 +57,7 @@
   position: absolute;
   display: none;
   top: 11px;
-  left: 10px;
+  left: -2px;
 }
 
 .drag-nav-middle {
