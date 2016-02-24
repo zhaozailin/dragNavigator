@@ -102,18 +102,20 @@
 
         // 中间的文本值
         var middleText = "";
+        var middleYear = "";
 
         var ulHtml = "<ul>";
         for (var i = 0; i < number; i++) {
             var tmp = data[i];
             ulHtml += "<li idx='" + (i + 1) + "' class='" + (!tmp.enabled ? "drag-nav-disabled" : "")+ "'>" +
-                "<div class='drag-nav-left' style='display:" + (tmp.leftShow ? "block" : "none") + "'>" + tmp.leftInfo + "</div>" +
-                "<div style='height: " + eleHeight + "px' class='drag-nav-center'>" + tmp.centerInfo + "</div>" +
+                //"<div class='drag-nav-left' style='display:" + (tmp.leftShow ? "block" : "none") + "'>" + tmp.leftInfo + "</div>" +
+                "<div style='height: " + eleHeight + "px' class='drag-nav-center'>" + (tmp.leftShow ? tmp.leftInfo : "") + tmp.centerInfo + "</div>" +
                 "<i></i>" +
                 "</li>";
 
             if (i === (number - 1) / 2) {
                 middleText = tmp.centerInfo;
+                middleYear = tmp.leftInfo;
             }
 
             // 计算上边界
@@ -135,7 +137,7 @@
         $(visibleObj).html(scrollObj);
 
         $(visibleObj).append("<div class='drag-nav-middle' style='height: " + eleHeight + "px;top: " + (visibleHeight - eleHeight) / 2 + "px'></div>");
-        $(visibleObj).append("<div class='drag-nav-focus-flag' style='line-height: " + eleHeight + "px;height: " + eleHeight + "px;top: " + (visibleHeight - eleHeight) / 2 + "px'>" + middleText + "</div>");
+        $(visibleObj).append("<div class='" + (middleText === "1月" ? "drag-nav-focus-flag-big" : "drag-nav-focus-flag") + "' style='line-height: " + eleHeight + "px;height: " + eleHeight + "px;top: " + (visibleHeight - eleHeight) / 2 + "px'>" + (middleText === "1月" ? (middleYear + middleText) : middleText) + "</div>");
 
         // 滚动区域
         var scrollObj = $(scrollObj);

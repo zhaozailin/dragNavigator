@@ -93,3 +93,15 @@
   text-align: center;
   font-size: 13px;
 }
+
+.drag-nav-focus-flag-big {
+  height: 40px;
+  background: url("../images/focus_70.png") no-repeat 0 8px;
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  left: 30px;
+  text-align: left;
+  font-size: 13px;
+  padding-left: 3px;
+}
