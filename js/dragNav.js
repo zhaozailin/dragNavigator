@@ -110,7 +110,7 @@
             ulHtml += "<li idx='" + (i + 1) + "' class='" + (!tmp.enabled ? "drag-nav-disabled" : "")+ "'>" +
                 //"<div class='drag-nav-left' style='display:" + (tmp.leftShow ? "block" : "none") + "'>" + tmp.leftInfo + "</div>" +
                 "<div style='height: " + eleHeight + "px' class='drag-nav-center'>" + (tmp.leftShow ? tmp.leftInfo : "") + tmp.centerInfo + "</div>" +
-                "<i></i>" +
+                (tmp.enabled ? "<i></i>" : "") +
                 "</li>";
 
             if (i === (number - 1) / 2) {
