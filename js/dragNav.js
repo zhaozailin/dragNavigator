@@ -137,7 +137,7 @@
         $(visibleObj).html(scrollObj);
 
         $(visibleObj).append("<div class='drag-nav-middle' style='height: " + eleHeight + "px;top: " + (visibleHeight - eleHeight) / 2 + "px'></div>");
-        $(visibleObj).append("<div class='" + (middleText === "1月" ? "drag-nav-focus-flag-big" : "drag-nav-focus-flag") + "' style='line-height: " + eleHeight + "px;height: " + eleHeight + "px;top: " + (visibleHeight - eleHeight) / 2 + "px'>" + (middleText === "1月" ? (middleYear + middleText) : middleText) + "</div>");
+        $(visibleObj).append("<div class='" + (middleText === "1月" ? "drag-nav-focus-flag-big" : "drag-nav-focus-flag") + "' style='line-height: " + (eleHeight - 8) + "px;height: " + eleHeight + "px;top: " + ((visibleHeight - eleHeight) / 2 + 5) + "px'>" + (middleText === "1月" ? (middleYear + middleText) : middleText) + "</div>");
 
         // 滚动区域
         var scrollObj = $(scrollObj);

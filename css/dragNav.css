@@ -28,13 +28,13 @@
   list-style: none;
   outline-style: none;
   display: block;
-  height: 40px;
+  height: 50px;
   position: relative;
 }
 
 .drag-nav-scroll ul li i {
   position: absolute;
-  top: 14px;
+  top: 18px;
   right: 2px;
   font-size: 25px;
   color: #185AF5;
@@ -46,7 +46,7 @@
 
 .drag-nav-center {
   border-right: 2px solid #ACB1B1;
-  line-height: 40px;
+  line-height: 50px;
   text-align: right;
   padding-right: 14px;
   margin-right: 7px;
@@ -84,7 +84,7 @@
 }
 
 .drag-nav-focus-flag {
-  height: 40px;
+  height: 50px;
   background: url("../images/focus.png") no-repeat 0 8px;
   color: #fff;
   position: absolute;
@@ -95,7 +95,7 @@
 }
 
 .drag-nav-focus-flag-big {
-  height: 40px;
+  height: 50px;
   background: url("../images/focus_70.png") no-repeat 0 8px;
   color: #fff;
   position: absolute;
