@@ -97,8 +97,21 @@
       });
     }
 
+    // 测试年份导航
+    var enabledYears = ["2015", "2016", "2017", "2018", "2019", "2020", "2021"];
+    var curYear = "2018";
+
+    function testYear (curYear) {
+      var newTimes = timeUtils.switchNavDataForYear(curYear, enabledYears);
+      dragNav.init(config, newTimes, function(stopInfo) {
+        $("#log").html(stopInfo.leftInfo + "-" + stopInfo.centerInfo);
+        testYear(stopInfo.centerInfo.slice(0, -1));
+      });
+    }
+
     $(function() {
       test(curTime);
+//      testYear(curYear);
     });
   </script>
 </body>
